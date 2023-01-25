@@ -8,7 +8,7 @@ set xlabel "{/:Bold x}"
 set ylabel "{/:Bold y}"
 while (x0 < 1){
 	len = 50
-	mu = 2.1
+	mu = 2.5
 	array xdata[len]
 	array ydata[len]
 	

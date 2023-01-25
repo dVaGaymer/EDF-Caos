@@ -1,13 +1,17 @@
 #!/opt/homebrew/bin/gnuplot
 
 
-mu = 1
+mu = 2.99
+mux = (mu - 1)/mu
+array mudata[2]
+mudata[1] = mux
+mudata[2] = mu * mux - mu * mux**2
+x0 = 0.1
 set xrange[0:1]
 set yrange[0:1]
 set xlabel "{/:Bold x}"
 set ylabel "{/:Bold y}"
-while (mu < 3){
-	x0 = (mu - 1) / mu
+while (x0 < 1){
 	len = 50
 	array xdata[len]
 	array ydata[len]
@@ -23,9 +27,10 @@ while (mu < 3){
 		i = i + 2
 	}
 	plot xdata using (xdata[$1]):(ydata[$1]) with lines notitle, \
+	mudata using(mudata[1]):(mudata[2]) with points pt 7 ps 2 title "({/Symbol m} - 1) / {/Symbol m}", \
 	mu*x-mu*x*x notitle, \
 	x notitle
-	mu = mu + 0.001
-	pause 0.004
+	unset object
+	x0 = x0 + 0.001
 }
 pause -1

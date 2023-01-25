@@ -7,7 +7,7 @@ set xlabel "{/:Bold x}"
 set ylabel "{/:Bold y}"
 x0 = 0.1
 len = 50
-mu = 2.5
+mu = 0.8
 array xdata[len]
 array ydata[len]
 
