@@ -23,7 +23,8 @@ while (x0 < 1){
 		i = i + 2
 	}
 	plot xdata using (xdata[$1]):(ydata[$1]) with lines notitle, \
-	mu*x-mu*x*x notitle
+	mu*x-mu*x*x notitle, \
+	x
 	x0 = x0 + 0.001
 	pause 0.004
 }
