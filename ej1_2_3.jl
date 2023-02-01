@@ -8,7 +8,7 @@ it = 200
 
 # Initial conditions
 x_init = 0.1
-μ_init = 3.566
+μ_init = 2.5
 Base.@kwdef mutable struct Logistic
 	n = 1
 	μ = μ_init
@@ -92,19 +92,22 @@ lines!(axis, 0:0.01:1, x -> x)
 μSlider = Slider(fig[1, 4];
 		horizontal = false,
 		range = 0.0:0.1:4,
-		startvalue = 3.566,
+		startvalue = μ_init,
 		color_inactive = RGBf(0.90, 0.50, 0.50),
 		color_active = RGBf(0.70, 0.20, 0.20),
 		color_active_dimmed = RGBf(0.70, 0.20, 0.20))
 xSlider = Slider(fig[2, 1:3];
 		horizontal = true,
 		range = 0.0:0.01:1,
-		startvalue = 0.1,
+		startvalue = x_init,
 		color_inactive = RGBf(0.50, 0.50, 0.90),
 		color_active = RGBf(0.20, 0.20, 0.70),
 		color_active_dimmed = RGBf(0.20, 0.20, 0.70))
 
+lab = Observable("(μ: $μ_init| x: $x_init)")
 lift(xSlider.value) do v
+	lab[] = "(μ: $μ_init| x: $x_init)"
+	global x_init = v
 	running[] = false
 	n = rep.n
 	anim_reset(v, rep.μ)
@@ -116,12 +119,13 @@ lift(xSlider.value) do v
 	end
 	data[] = data_aux
 end
-
-lift(μSlider.value) do v
+lift(μSlider.value) do μ
+	lab[] = "(μ: $μ_init| x: $x_init)"
+	global μ_init = μ
 	running[] = false
-	func[] = (x -> rep.f(v, x))
+	func[] = (x -> rep.f(μ, x))
 	n = rep.n
-	anim_reset(rep.x, v)
+	anim_reset(x_init, μ)
 	data_aux = Point2f[]
 	push!(data_aux, [rep.x, 0.0])
 	while (n > 1)
@@ -132,7 +136,7 @@ lift(μSlider.value) do v
 end
 
 #Intialice button and its functions
-initAnimation = Button(fig[1, 2, Top()]; label = "Start/Stop Animation")
+initAnimation = Button(fig[1, 2, Top()]; label = lab)
 stepOut = Button(fig[3, 1]; label = "Step Out")
 resetAnim = Button(fig[3, 2]; label = "Reset")
 stepIn = Button(fig[3, 3]; label = "Step In")
@@ -142,7 +146,7 @@ resetAnim.tellwidth = false
 
 on(stepIn.clicks) do clicks; anim_next(); end
 on(stepOut.clicks) do clicks; anim_prev(); end
-on(resetAnim.clicks) do clicks; anim_reset(rep.x, rep.μ); end
+on(resetAnim.clicks) do clicks; anim_reset(x_init, μ_init); end
 on(initAnimation.clicks) do clicks; anim_init(); end
 on(initAnimation.clicks) do clicks; running[] = !running[]; end
 
