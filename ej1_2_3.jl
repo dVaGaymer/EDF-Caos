@@ -91,7 +91,7 @@ lines!(axis, 0:0.01:1, x -> x)
 # Initialize sliders
 μSlider = Slider(fig[1, 4];
 		horizontal = false,
-		range = 0.0:0.1:4,
+		range = 0.0:0.001:4,
 		startvalue = μ_init,
 		color_inactive = RGBf(0.90, 0.50, 0.50),
 		color_active = RGBf(0.70, 0.20, 0.20),
@@ -151,3 +151,6 @@ on(initAnimation.clicks) do clicks; anim_init(); end
 on(initAnimation.clicks) do clicks; running[] = !running[]; end
 
 display(fig)
+
+# use when plotting with feigenbaum.jl
+include("feigenbaum.jl")
