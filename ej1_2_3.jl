@@ -13,7 +13,7 @@ Base.@kwdef mutable struct Logistic
 	n = 1
 	μ = μ_init
 	x = x_init
-	f::Function = (μ_aux, x_aux) -> μ_aux * x_aux * (1 - x_aux)
+	f::Function = (μ, x) -> μ * sin(pi * x)
 end
 
 # Each iteration apply logistic equation
@@ -79,14 +79,14 @@ end
 rep = Logistic()
 data = Observable(Point2f[])
 anim_reset(x_init, μ_init)
-func = Observable{Function}(x -> rep.f(rep.μ, x))
+func = Observable{Function}(x -> rep.f(2, x))
 
 #= PLOTTING =#
 fig = Figure()
 axis = Axis(fig[1, 1:3])
 lines!(axis, data)
-lines!(axis, 0:0.01:1, func)
-lines!(axis, 0:0.01:1, x -> x)
+lines!(axis, -10:0.01:10, func)
+lines!(axis, -10:0.01:10, x -> x)
 
 # Initialize sliders
 μSlider = Slider(fig[1, 4];
