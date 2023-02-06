@@ -1,5 +1,5 @@
 # WELCOME TO C~~h~~A~A~aO$0$oo$
-### (Discrete Dynamic Systems)
+### (Unidimensional Discrete Dynamic Systems)
 
 ---
 
