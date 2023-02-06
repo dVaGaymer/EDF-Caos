@@ -68,3 +68,7 @@ $x_{k+1} = x^2 + \mu$
 $x_{k+1} = e^{-4.9 x^2} + \mu$
 
 ![alt text](renders/ec5.png)
+
+# If you are still thirsty and need more C~~h~~A~A~aO$0$oo$ try this [Amazing Repo](www.github.com/dVaGaymer/fract-ol)
+
+more to come...
