@@ -1,7 +1,6 @@
 using GLMakie
 using CSV, DataFrames
 
-ec::Function = (x, μ) -> x
 function useEquation(n_ec)
 	global it = 1000
 	global dec_digits = 5
