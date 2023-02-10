@@ -25,7 +25,7 @@
 -	$-1 \le \mu \le 1$
 -	$-1 \le x \le 1$
 	-	$x_0$ = $0.1$
-## $Camp Function$
+#### $Camp Function$
 -	$0 \le \mu \le 1$
 -	$0 \le x \le 1$
 	-	$x_0$ = $0.1$
