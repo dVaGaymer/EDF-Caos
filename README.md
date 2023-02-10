@@ -25,6 +25,7 @@
 -	$-1 \le \mu \le 1$
 -	$-1 \le x \le 1$
 	-	$x_0$ = $0.1$
+## $Camp Function$
 
 ## How to use
 
@@ -68,6 +69,11 @@ $x_{k+1} = x^2 + \mu$
 $x_{k+1} = e^{-4.9 x^2} + \mu$
 
 ![alt text](UnidimensionalDiscreteDynamicSystem/renders/ec5.png)
+
+
+$Camp Func$
+
+![alt text](UnidimensionalDiscreteDynamicSystem/renders/ec6.png)
 
 # If you are still thirsty and need more C~~h~~A~A~aO$0$oo$ try this [Amazing Repo](www.github.com/dVaGaymer/fract-ol)
 

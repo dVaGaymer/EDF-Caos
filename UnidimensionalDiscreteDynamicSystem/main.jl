@@ -111,3 +111,6 @@ scatter!(feig_axis, P; markersize = 5)
 vlines!(feig_axis, μSlider.value)
 
 display(fig)
+
+#=  Camp Func  =#
+useEquation(6)

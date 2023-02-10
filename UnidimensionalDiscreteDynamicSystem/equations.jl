@@ -46,6 +46,14 @@ function useEquation(n_ec)
 		global (x_init[], x_low[], x_high[], μ_init[], μ_low[], μ_high[]) = 0.1, -1.0, 1.0, 0.0, -1, 1
 		c5[] = :tomato
 	end
+	if (n_ec == 6)
+		#=  ([−1, 1], Fa) ; Fa(x) = e^(−αx^2)+ a ; −1 ≤ a ≤ 1 ; α = 4.9  =#
+		global ec = (μ, x) -> campFunc(μ, x)
+		global data_path = "UnidimensionalDiscreteDynamicSystem/feigenbaum_data/ec6.csv"
+		global μ_data = range(0, 1, μ_steps)
+		global (x_init[], x_low[], x_high[], μ_init[], μ_low[], μ_high[]) = 0.25, 0.1, 1.0, 0.25, 0, 1
+		c5[] = :tomato
+	end
 	P[] = (Matrix(CSV.read(data_path, DataFrame; delim = ',', header = false)))::Matrix
 	#=  Reset everything  =#
 	splice!(data[], 1:length(data[]))
@@ -55,7 +63,7 @@ function useEquation(n_ec)
 	rep.f = ec
 	push!(data[], [x_init[], 0.0])
 	data[] = data[]
-	aux_func[] = ((x) -> rep.f(rep.μ, x))
+	aux_func[] = x -> rep.f(rep.μ, x)
 	μ_init[]
 	x_init[]
 	x_range[] = x_low[]:0.01:x_high[]
