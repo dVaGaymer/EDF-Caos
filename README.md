@@ -70,7 +70,6 @@ $x_{k+1} = e^{-4.9 x^2} + \mu$
 
 ![alt text](UnidimensionalDiscreteDynamicSystem/renders/ec5.png)
 
-
 $Camp Func$
 
 ![alt text](UnidimensionalDiscreteDynamicSystem/renders/ec6.png)
