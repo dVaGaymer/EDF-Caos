@@ -9,9 +9,9 @@ Base.@kwdef mutable struct DynamicSyistem
 end
 
 #=  Lyapunov function  =#
-function lyapunov(dysy, μ, n)
+function lyapunov(dysy, μ, x_init, n)
 	save_x = dysy.x_current
-	dysy.x_current = 0.1
+	dysy.x_current = x_init
 
 	i = 0
 	ret = 0

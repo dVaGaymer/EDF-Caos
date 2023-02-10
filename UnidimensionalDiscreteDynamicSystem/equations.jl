@@ -9,7 +9,7 @@ function useEquation(n_ec)
 	if (n_ec == 1)
 		#=  =#
 		global ec = ((μ, x) -> x * μ * (1 - x))::Function
-		global data_path = "feigenbaum_data/ec1.csv"
+		global data_path = "UnidimensionalDiscreteDynamicSystem/feigenbaum_data/ec1.csv"
 		global μ_data = range(2.8, 4, μ_steps)
 		global (x_init[], x_low[], x_high[], μ_init[], μ_low[], μ_high[]) = 0.1, 0.0, 1.0, 3.0, 2.8, 4
 		c1[] = :tomato
@@ -17,7 +17,7 @@ function useEquation(n_ec)
 	if (n_ec == 2)
 		#=  ([0, 1], Fa ) ; Fa(x) = a sin(πx) ; 0 ≤ a ≤ 1  =#
 		global ec = (μ, x) -> μ * sin(pi * x)
-		global data_path = "feigenbaum_data/ec2.csv"
+		global data_path = "UnidimensionalDiscreteDynamicSystem/feigenbaum_data/ec2.csv"
 		global μ_data = range(0, 1, μ_steps)
 		global (x_init[], x_low[], x_high[], μ_init[], μ_low[], μ_high[]) = 0.1, 0.0, 1.0, 0.5, 0.0, 1.0
 		c2[] = :tomato
@@ -25,7 +25,7 @@ function useEquation(n_ec)
 	if (n_ec == 3)
 		#=  ([0, 1], Fa ) ; Fa(x) = ax^2sin(πx) ; 1.5 ≤ a ≤ 2.3  =#
 		global ec = (μ, x) -> μ * x^2 * sin(pi * x)
-		global data_path = "feigenbaum_data/ec3.csv"
+		global data_path = "UnidimensionalDiscreteDynamicSystem/feigenbaum_data/ec3.csv"
 		global μ_data = range(1.5, 2.3, μ_steps)
 		global (x_init[], x_low[], x_high[], μ_init[], μ_low[], μ_high[]) = 0.5, 0.0, 1.0, 2.0, 1.5, 2.3
 		c3[] = :tomato
@@ -33,7 +33,7 @@ function useEquation(n_ec)
 	if (n_ec == 4)
 		#=  ([−∞, ∞], Fa) ; Fa(x) = x^2 + a ; −2 ≤ a ≤ 1/4  =#
 		global ec = (μ, x) -> x^2 + μ
-		global data_path = "feigenbaum_data/ec4.csv"
+		global data_path = "UnidimensionalDiscreteDynamicSystem/feigenbaum_data/ec4.csv"
 		global μ_data = range(-2, 1/4, μ_steps)
 		global (x_init[], x_low[], x_high[], μ_init[], μ_low[], μ_high[]) = 0.5, -10.0, 10.0, 0.0, -2, 1/4
 		c4[] = :tomato
@@ -41,7 +41,7 @@ function useEquation(n_ec)
 	if (n_ec == 5)
 		#=  ([−1, 1], Fa) ; Fa(x) = e^(−αx^2)+ a ; −1 ≤ a ≤ 1 ; α = 4.9  =#
 		global ec = (μ, x) -> exp(-4.9 * x^2) + μ
-		global data_path = "feigenbaum_data/ec5.csv"
+		global data_path = "UnidimensionalDiscreteDynamicSystem/feigenbaum_data/ec5.csv"
 		global μ_data = range(-1, 1, μ_steps)
 		global (x_init[], x_low[], x_high[], μ_init[], μ_low[], μ_high[]) = 0.1, -1.0, 1.0, 0.0, -1, 1
 		c5[] = :tomato
