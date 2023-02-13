@@ -7,8 +7,7 @@ function step!(h)
 	h.y_current = y_aux
 	push!(h.p_data, Point2f(h.x_current, h.y_current))
 end
-function fillData!(attractor)
-	it = 1000000
+function fillData!(attractor; it = 1000000)
 	for i in 0:it
 		step!(attractor)
 	end
